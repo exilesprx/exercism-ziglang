@@ -24,3 +24,4 @@ RUN zig build -Doptimize=ReleaseSafe \
   && chown -R zig:zig /usr/local/bin
 WORKDIR /opt
 USER zig
+RUN echo "test";
