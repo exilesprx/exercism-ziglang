@@ -16,7 +16,7 @@ RUN wget -q https://ziglang.org/builds/zig-linux-x86_64-${VERSION}.tar.xz \
   && tar -xf zig-linux-x86_64-${VERSION}.tar.xz \
   && mv zig-linux-x86_64-${VERSION}/* /usr/local/bin \
   && git clone https://github.com/zigtools/zls
-WORKDIR zls
+WORKDIR /opt/zls
 RUN zig build -Doptimize=ReleaseSafe \
   && mv zig-out/bin/zls /usr/local/bin \
   && rm -rf /opt/zig-linux-x86_64-${VERSION}.tar.xz \
