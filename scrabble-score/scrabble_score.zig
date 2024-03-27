@@ -1,33 +1,37 @@
 const std = @import("std");
-const Letters = struct { letters: []const u8, points: u8 };
 
-const ones = Letters{ .letters = "AEIOULNRST", .points = 1 };
-const twos = Letters{ .letters = "DG", .points = 2 };
-const threes = Letters{ .letters = "BCMP", .points = 3 };
-const fours = Letters{ .letters = "FHVWY", .points = 4 };
-const fives = Letters{ .letters = "K", .points = 5 };
-const eights = Letters{ .letters = "JX", .points = 8 };
-const tens = Letters{ .letters = "QZ", .points = 10 };
+const LetterValues = struct {
+    letters: []const u8,
+    value: u8,
+
+    pub fn contains(self: LetterValues, letter: u8) bool {
+        for (self.letters) |l| {
+            if (std.ascii.isAlphabetic(letter) and std.ascii.toUpper(letter) == l) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+
+const ones = LetterValues{ .letters = "AEIOULNRST", .value = 1 };
+const twos = LetterValues{ .letters = "DG", .value = 2 };
+const threes = LetterValues{ .letters = "BCMP", .value = 3 };
+const fours = LetterValues{ .letters = "FHVWY", .value = 4 };
+const fives = LetterValues{ .letters = "K", .value = 5 };
+const eights = LetterValues{ .letters = "JX", .value = 8 };
+const tens = LetterValues{ .letters = "QZ", .value = 10 };
+const letters = [_]LetterValues{ ones, twos, threes, fours, fives, eights, tens };
 
 pub fn score(s: []const u8) u32 {
     var sum: u32 = 0;
-    const letters = [_]Letters{ ones, twos, threes, fours, fives, eights, tens };
     for (s) |c| {
         for (letters) |l| {
-            if (contains(l.letters, c)) {
-                sum += l.points;
+            if (l.contains(c)) {
+                sum += l.value;
             }
         }
     }
 
     return sum;
-}
-
-fn contains(letters: []const u8, letter: u8) bool {
-    for (letters) |l| {
-        if (std.ascii.isAlphabetic(letter) and std.ascii.toUpper(letter) == l) {
-            return true;
-        }
-    }
-    return false;
 }
