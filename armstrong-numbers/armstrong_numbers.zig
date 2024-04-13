@@ -4,6 +4,7 @@ const print = std.debug.print;
 pub fn isArmstrongNumber(num: u128) bool {
     const allocator = std.heap.page_allocator;
     const str = std.fmt.allocPrint(allocator, "{d}", .{num}) catch "Failed to format";
+    defer allocator.free(str);
 
     var sum: u128 = 0;
     for (str) |c| {
