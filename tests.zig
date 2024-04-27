@@ -8,6 +8,7 @@ comptime {
     _ = @import("leap/test_leap.zig");
     _ = @import("pangram/test_pangram.zig");
     _ = @import("scrabble-score/test_scrabble_score.zig");
+    _ = @import("hamming/test_hamming.zig");
 }
 
 test {
