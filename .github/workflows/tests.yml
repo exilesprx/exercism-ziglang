@@ -10,10 +10,10 @@ jobs:
     container:
       image: exilesprx/exercism-zig:latest
     steps:
-      - uses: actions/checkout@v4
-
       - name: "Make dir"
         run: mkdir -m 1777 /__w
+
+      - uses: actions/checkout@v4
 
       - name: "Run tests"
         run: zig build test --summary all
