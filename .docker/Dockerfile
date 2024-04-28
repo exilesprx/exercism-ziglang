@@ -13,11 +13,12 @@ RUN apt-get -y update \
   && rm -rf /var/lib/apt/lists/*
 WORKDIR /opt
 RUN wget -q https://ziglang.org/builds/zig-linux-x86_64-${VERSION}.tar.xz \
-  && mkdir /opt/ziglang/ \
   && tar -xf zig-linux-x86_64-${VERSION}.tar.xz \
-  && mv zig-linux-x86_64-${VERSION}/zig /opt/ziglang/zig
+  && mv /opt/zig-linux-x86_64-${VERSION} /opt/zig-linux-x86_64
 
 FROM base AS latest
 RUN useradd -m -s /bin/bash -u 1000 zig
-COPY --chown=zig:zig --chmod=555 --from=exilesprx/exercism-zig:source /opt/ziglang/zig /usr/local/bin/zig
+COPY --chown=zig:zig --chmod=555 --from=exilesprx/exercism-zig:source /opt/zig-linux-x86_64/ /opt/zig-linux-x86_64/
+RUN ln -s /opt/zig-linux-x86_64/zig /usr/local/bin/zig
 USER zig
+WORKDIR /home/zig
