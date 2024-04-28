@@ -9,9 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: exilesprx/exercism-zig:latest
-      options: --user root
     steps:
       - uses: actions/checkout@v4
+
+      - name: "Make dir"
+        run: mkdir -m 1777 /__w
 
       - name: "Run tests"
         run: zig build test --summary all
