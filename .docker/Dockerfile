@@ -14,7 +14,8 @@ RUN apt-get -y update \
 WORKDIR /opt
 RUN wget -q https://ziglang.org/builds/zig-linux-x86_64-${VERSION}.tar.xz \
   && tar -xf zig-linux-x86_64-${VERSION}.tar.xz \
-  && mv zig-linux-x86_64-${VERSION}/* /usr/local/bin \
+  && mv zig-linux-x86_64-${VERSION}/zig /usr/local/bin \
   && rm -rf /opt/zig-linux-x86_64-${VERSION}.tar.xz \
+  && rm -rf /opt/zig-linux-x86_64-${VERSION} \
   && chown -R zig:zig /usr/local/bin
 USER zig
