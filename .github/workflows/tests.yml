@@ -9,9 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: exilesprx/exercism-zig:latest
-      options: --workdir /opt -w /opt
+      options: --user root
     steps:
       - uses: actions/checkout@v4
+
+      - name: "Symlink zig for root"
+        run: ln -s /usr/local/bin/zig /usr/bin/zig
 
       - name: "Run tests"
         run: zig build test --summary all
