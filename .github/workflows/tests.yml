@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: exilesprx/exercism-zig:latest
-      options: --workdir /opt
+      options: --workdir /opt -w /opt
     steps:
       - uses: actions/checkout@v4
 
