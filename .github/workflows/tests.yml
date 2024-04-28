@@ -13,8 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: "Symlink zig for root"
-        run: ln -s /usr/local/bin/zig /usr/local/sbin/zig
+      - name: "test"
+        run: ls -la /usr/local/bin/
 
       - name: "Run tests"
         run: zig build test --summary all
