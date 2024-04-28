@@ -11,7 +11,7 @@ jobs:
       image: exilesprx/exercism-zig:latest
     steps:
       - name: "Make dir"
-        run: mkdir -m 1777 /__w
+        run: chmod 1777 /__w
 
       - uses: actions/checkout@v4
 
