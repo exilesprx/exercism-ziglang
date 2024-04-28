@@ -1,13 +1,14 @@
-name: "Tests"
+name: Tests
 on:
   push:
     branches-ignore:
       - "main"
 
 jobs:
+  runs-on: ubuntu-latest
+  container: exilesprx/exercism-zig:latest
+
   tests:
-    runs-on: ubuntu-latest
-    container: exilesprx/exercism-zig:latest
     steps:
       - uses: actions/checkout@v4
 
