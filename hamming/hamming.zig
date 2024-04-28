@@ -13,8 +13,8 @@ pub fn compute(first: []const u8, second: []const u8) DnaError!usize {
     }
 
     var hamming: usize = 0;
-    for (first, 0..) |c, i| {
-        if (c != second[i]) {
+    for (first, second) |c, b| {
+        if (c != b) {
             hamming += 1;
         }
     }
