@@ -1,28 +1,21 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/debian
 {
-	"name": "Zig - Exercism",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"build": {
-		"dockerfile": "Dockerfile",
-		"args": {
-			"VERSION": "0.12.0-dev.2818+97290e0bf"
-		}
-	},
-	"customizations": {
-	  "vscode": {
-	    "extensions": [
-	      "ziglang.vscode-zig"
-	    ]
-	  }
-	},
+  "name": "Zig - Exercism",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "image": "exilesprx/exercism-zig:latest",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ziglang.vscode-zig"]
+    }
+  },
 
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  // "features": {},
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
 
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	"remoteUser": "zig"
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  "remoteUser": "zig"
 }

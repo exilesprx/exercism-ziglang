@@ -1,0 +1,17 @@
+name: Tests
+on:
+  push:
+    branches-ignore:
+      - "main"
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    container:
+      image: exilesprx/exercism-zig:latest
+      options: --user root
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "Run tests"
+        run: zig build test --summary all
