@@ -13,11 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: "test"
-        run: ls -la /usr/local/bin/
-
-      - name: "version"
-        run: zig version
-
       - name: "Run tests"
-        run: zig build test --summary all
+        run: |
+          ls -la
+          zig build test --summary all
