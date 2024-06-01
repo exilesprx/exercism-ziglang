@@ -12,6 +12,7 @@ comptime {
     _ = @import("leap/test_leap.zig");
     _ = @import("luhn/test_luhn.zig");
     _ = @import("pangram/test_pangram.zig");
+    _ = @import("nucleotide-count/test_nucleotide_count.zig");
     _ = @import("resistor-color/test_resistor_color.zig");
     _ = @import("resistor-color-duo/test_resistor_color_duo.zig");
     _ = @import("scrabble-score/test_scrabble_score.zig");
