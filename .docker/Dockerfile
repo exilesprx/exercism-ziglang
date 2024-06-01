@@ -18,7 +18,7 @@ RUN wget -q https://ziglang.org/builds/zig-linux-x86_64-${VERSION}.tar.xz \
 
 FROM base AS latest
 RUN useradd -m -s /bin/bash -u 1000 zig
-COPY --chown=zig:zig --chmod=555 --from=source /opt/zig-linux-x86_64/ /opt/zig-linux-x86_64/
+COPY --chown=zig:zig --chmod=555 --from=exilesprx/exercism-zig:source /opt/zig-linux-x86_64/ /opt/zig-linux-x86_64/
 RUN ln -s /opt/zig-linux-x86_64/zig /usr/local/bin/zig
 USER zig
 WORKDIR /home/zig
