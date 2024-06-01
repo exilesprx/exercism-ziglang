@@ -1,0 +1,24 @@
+name: Main build
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and Push
+        run: |
+          docker compose -f docker-compose.build.yml build --pull source
+          docker compose -f docker-compose.build.yml build --pull zig
+          docker compose -f docker-compose.build.yml push
