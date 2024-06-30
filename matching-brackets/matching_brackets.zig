@@ -17,7 +17,7 @@ pub fn isBalanced(allocator: mem.Allocator, s: []const u8) !bool {
 
                 // If the last element in the array is not the matching opening bracket, then we have a mismatch.
                 const last = array.getLast();
-                if ((c == ']' and last != '[') or (c == ')' and last != '(') or (c == '}' and last != '{')) {
+                if (last != opening(c)) {
                     return false;
                 }
                 _ = array.popOrNull();
@@ -31,4 +31,13 @@ pub fn isBalanced(allocator: mem.Allocator, s: []const u8) !bool {
 
     // If the array is empty, then all brackets were balanced.
     return array.items.len == 0;
+}
+
+fn opening(c: u8) u8 {
+    switch (c) {
+        ']' => return '[',
+        ')' => return '(',
+        '}' => return '{',
+        else => unreachable,
+    }
 }
