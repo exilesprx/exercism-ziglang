@@ -11,12 +11,8 @@ pub fn isBalanced(allocator: mem.Allocator, s: []const u8) !bool {
                 try array.append(c);
             },
             ']', ')', '}' => {
-                if (array.items.len == 0) {
-                    return false;
-                }
-
                 // If the last element in the array is not the matching opening bracket, then we have a mismatch.
-                const last = array.getLast();
+                const last = array.getLastOrNull();
                 if (last != opening(c)) {
                     return false;
                 }
