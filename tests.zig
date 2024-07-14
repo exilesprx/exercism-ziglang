@@ -17,6 +17,7 @@ comptime {
     _ = @import("resistor-color/test_resistor_color.zig");
     _ = @import("resistor-color-duo/test_resistor_color_duo.zig");
     _ = @import("scrabble-score/test_scrabble_score.zig");
+    _ = @import("space-age/test_space_age.zig");
     _ = @import("triangle/test_triangle.zig");
 }
 
