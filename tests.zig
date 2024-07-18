@@ -2,6 +2,7 @@ const std = @import("std");
 
 comptime {
     _ = @import("armstrong-numbers/test_armstrong_numbers.zig");
+    _ = @import("bob/test_bob.zig");
     _ = @import("collatz-conjecture/test_collatz_conjecture.zig");
     _ = @import("darts/test_darts.zig");
     _ = @import("difference-of-squares/test_difference_of_squares.zig");
@@ -11,9 +12,9 @@ comptime {
     _ = @import("isogram/test_isogram.zig");
     _ = @import("leap/test_leap.zig");
     _ = @import("luhn/test_luhn.zig");
-    _ = @import("pangram/test_pangram.zig");
     _ = @import("matching-brackets/test_matching_brackets.zig");
     _ = @import("nucleotide-count/test_nucleotide_count.zig");
+    _ = @import("pangram/test_pangram.zig");
     _ = @import("resistor-color/test_resistor_color.zig");
     _ = @import("resistor-color-duo/test_resistor_color_duo.zig");
     _ = @import("scrabble-score/test_scrabble_score.zig");
