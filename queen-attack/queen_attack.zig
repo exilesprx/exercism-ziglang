@@ -15,14 +15,6 @@ pub const Queen = struct {
     }
 
     pub fn canAttack(self: Queen, other: Queen) QueenError!bool {
-        if (self.row == other.row) {
-            return true;
-        } else if (self.col == other.col) {
-            return true;
-        } else if (@abs(self.row - other.row) == @abs(self.col - other.col)) {
-            return true;
-        }
-
-        return false;
+        return self.row == other.row or self.col == other.col or @abs(self.row - other.row) == @abs(self.col - other.col);
     }
 };
