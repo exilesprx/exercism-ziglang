@@ -5,7 +5,7 @@ comptime {
     _ = @import("bob/test_bob.zig");
     _ = @import("collatz-conjecture/test_collatz_conjecture.zig");
     _ = @import("darts/test_darts.zig");
-    _ = @import("eliuds-eggs/eliuds_eggs.zig");
+    _ = @import("eliuds-eggs/test_eliuds_eggs.zig");
     _ = @import("difference-of-squares/test_difference_of_squares.zig");
     _ = @import("grains/test_grains.zig");
     _ = @import("hamming/test_hamming.zig");
