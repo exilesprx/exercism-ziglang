@@ -1,4 +1,7 @@
+const std = @import("std");
+
 pub fn squareRoot(radicand: usize) usize {
-    _ = radicand;
-    @compileError("please implement the squareRoot function");
+    var i: u64 = 1;
+    while (i * i < radicand) : (i = i + 1) {}
+    return i;
 }
