@@ -22,6 +22,7 @@ comptime {
     _ = @import("resistor-color-duo/test_resistor_color_duo.zig");
     _ = @import("rotational-cipher/test_rotational_cipher.zig");
     _ = @import("scrabble-score/test_scrabble_score.zig");
+    _ = @import("sieve/test_sieve.zig");
     _ = @import("square-root/test_square_root.zig");
     _ = @import("space-age/test_space_age.zig");
     _ = @import("triangle/test_triangle.zig");
