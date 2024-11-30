@@ -20,6 +20,7 @@ comptime {
     _ = @import("queen-attack/queen_attack.zig");
     _ = @import("resistor-color/test_resistor_color.zig");
     _ = @import("resistor-color-duo/test_resistor_color_duo.zig");
+    _ = @import("reverse-string/test_reverse_string.zig");
     _ = @import("rotational-cipher/test_rotational_cipher.zig");
     _ = @import("scrabble-score/test_scrabble_score.zig");
     _ = @import("sieve/test_sieve.zig");
