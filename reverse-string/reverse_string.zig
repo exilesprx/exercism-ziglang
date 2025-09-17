@@ -4,5 +4,5 @@ pub fn reverse(buffer: []u8, s: []const u8) []u8 {
         buffer[s.len - i - 1] = c;
     }
 
-    return buffer;
+    return buffer[0..s.len];
 }
