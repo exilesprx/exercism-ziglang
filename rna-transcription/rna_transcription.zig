@@ -2,7 +2,25 @@ const std = @import("std");
 const mem = std.mem;
 
 pub fn toRna(allocator: mem.Allocator, dna: []const u8) mem.Allocator.Error![]const u8 {
-    _ = allocator;
-    _ = dna;
-    @compileError("please implement the toRna function");
+    var rna = std.ArrayList(u8).initCapacity(allocator, dna.len) catch unreachable;
+
+    for (dna) |nucleotide| {
+        switch (nucleotide) {
+            'G' => {
+                try rna.append(allocator, 'C');
+            },
+            'C' => {
+                try rna.append(allocator, 'G');
+            },
+            'T' => {
+                try rna.append(allocator, 'A');
+            },
+            'A' => {
+                try rna.append(allocator, 'U');
+            },
+            else => unreachable,
+        }
+    }
+
+    return rna.toOwnedSlice(allocator);
 }
