@@ -29,6 +29,7 @@ comptime {
     _ = @import("triangle/test_triangle.zig");
     _ = @import("two-fer/test_two_fer.zig");
     _ = @import("raindrops/test_raindrops.zig");
+    _ = @import("rna-transcription/test_rna_transcription.zig");
 }
 
 test {
