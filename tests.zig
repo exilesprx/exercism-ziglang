@@ -28,6 +28,7 @@ comptime {
     _ = @import("space-age/test_space_age.zig");
     _ = @import("triangle/test_triangle.zig");
     _ = @import("two-few/test_two_fer.zig");
+    _ = @import("raindrops/test_raindrops.zig");
 }
 
 test {
