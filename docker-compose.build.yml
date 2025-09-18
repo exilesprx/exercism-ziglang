@@ -1,0 +1,9 @@
+services:
+  zig:
+    image: exilesprx/exercism-zig:latest
+    build:
+      args:
+        VERSION: "0.16.0-dev.238+580b6d1fa"
+      context: .
+      dockerfile: .docker/Dockerfile
+      target: build
