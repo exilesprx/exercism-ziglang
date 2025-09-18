@@ -2,13 +2,13 @@ const std = @import("std");
 const mem = std.mem;
 
 pub fn isBalanced(allocator: mem.Allocator, s: []const u8) !bool {
-    var array = std.ArrayList(u8).init(allocator);
-    defer array.deinit();
+    var array = try std.ArrayList(u8).initCapacity(allocator, s.len);
+    defer array.deinit(allocator);
 
     for (s) |c| {
         switch (c) {
             '[', '(', '{' => {
-                try array.append(c);
+                try array.append(allocator, c);
             },
             ']', ')', '}' => {
                 // If the last element in the array is not the matching opening bracket, then we have a mismatch.
@@ -16,7 +16,7 @@ pub fn isBalanced(allocator: mem.Allocator, s: []const u8) !bool {
                 if (last != opening(c)) {
                     return false;
                 }
-                _ = array.popOrNull();
+                _ = array.pop();
             },
 
             else => {
