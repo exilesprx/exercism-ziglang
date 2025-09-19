@@ -35,5 +35,5 @@ jobs:
 
       - name: Build docker image
         run: |
-          docker compose build --pull build
-          docker compose push build
+          docker compose build --pull zig
+          docker compose push zig
