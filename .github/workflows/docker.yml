@@ -34,7 +34,6 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build docker image
-        shell: bash
         run: |
           docker compose build --pull build
           docker compose push build
