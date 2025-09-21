@@ -31,6 +31,7 @@ comptime {
     _ = @import("raindrops/test_raindrops.zig");
     _ = @import("rna-transcription/test_rna_transcription.zig");
     _ = @import("sum-of-multiples/test_sum_of_multiples.zig");
+    _ = @import("acronym/acronym.zig");
 }
 
 test {
