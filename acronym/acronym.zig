@@ -6,10 +6,6 @@ pub fn abbreviate(allocator: mem.Allocator, words: []const u8) mem.Allocator.Err
     var splitWords = mem.splitAny(u8, words, " -");
 
     while (splitWords.next()) |word| {
-        if (word.len == 0) {
-            continue;
-        }
-
         for (word) |char| {
             switch (char) {
                 'a'...'z', 'A'...'Z' => {
