@@ -32,6 +32,7 @@ comptime {
     _ = @import("rna-transcription/test_rna_transcription.zig");
     _ = @import("sum-of-multiples/test_sum_of_multiples.zig");
     _ = @import("acronym/test_acronym.zig");
+    _ = @import("resistor-color-trio/test_resistor_color_trio.zig");
 }
 
 test {
