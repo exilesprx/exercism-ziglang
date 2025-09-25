@@ -13,12 +13,11 @@ pub const Allergen = enum {
 };
 
 pub fn isAllergicTo(score: u8, allergen: Allergen) bool {
-    _ = score;
-    _ = allergen;
-    @compileError("please implement the isAllergicTo function");
+    return initAllergenSet(score).contains(allergen);
 }
 
 pub fn initAllergenSet(score: usize) EnumSet(Allergen) {
-    _ = score;
-    @compileError("please implement the initAllergenSet function");
+    var set = std.EnumSet(Allergen).initEmpty();
+    set.bits.mask = @truncate(score);
+    return set;
 }
