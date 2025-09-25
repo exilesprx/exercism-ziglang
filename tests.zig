@@ -33,6 +33,7 @@ comptime {
     _ = @import("sum-of-multiples/test_sum_of_multiples.zig");
     _ = @import("acronym/test_acronym.zig");
     _ = @import("resistor-color-trio/test_resistor_color_trio.zig");
+    _ = @import("allergies/test_allergies.zig");
 }
 
 test {
