@@ -17,7 +17,8 @@ pub fn isAllergicTo(score: u8, allergen: Allergen) bool {
 }
 
 pub fn initAllergenSet(score: usize) EnumSet(Allergen) {
-    var set = std.EnumSet(Allergen).initEmpty();
-    set.bits.mask = @truncate(score);
-    return set;
+    const BitSet = std.StaticBitSet(8);
+    const bitset = BitSet{ .mask = @truncate(score) };
+
+    return EnumSet(Allergen){ .bits = bitset };
 }
