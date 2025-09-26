@@ -8,8 +8,26 @@ pub fn detectAnagrams(
     word: []const u8,
     candidates: []const []const u8,
 ) !std.BufSet {
-    _ = allocator;
-    _ = word;
-    _ = candidates;
-    @compileError("please implement the detectAnagrams function");
+    var bufset = std.BufSet.init(allocator);
+    const wordSorted = try allocator.dupe(u8, word);
+    defer allocator.free(wordSorted);
+    const candidateSorted = try allocator.alloc(u8, word.len);
+    defer allocator.free(candidateSorted);
+
+    _ = std.ascii.lowerString(wordSorted, word);
+    mem.sort(u8, wordSorted, {}, comptime std.sort.asc(u8));
+    for (candidates) |candidate| {
+        if (candidate.len != word.len or std.ascii.eqlIgnoreCase(word, candidate)) {
+            continue;
+        }
+
+        _ = std.ascii.lowerString(candidateSorted, candidate);
+        mem.sort(u8, candidateSorted, {}, comptime std.sort.asc(u8));
+        if (!mem.eql(u8, wordSorted, candidateSorted)) {
+            continue;
+        }
+
+        try bufset.insert(candidate);
+    }
+    return bufset;
 }
