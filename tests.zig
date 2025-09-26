@@ -34,6 +34,7 @@ comptime {
     _ = @import("acronym/test_acronym.zig");
     _ = @import("resistor-color-trio/test_resistor_color_trio.zig");
     _ = @import("allergies/test_allergies.zig");
+    _ = @import("anagram/anagram.zig");
 }
 
 test {
