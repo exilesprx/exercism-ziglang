@@ -1,6 +1,11 @@
 const std = @import("std");
 const mem = std.mem;
 
+fn lowerAndSort(buffer: []u8, word: []const u8) void {
+    _ = std.ascii.lowerString(buffer, word);
+    mem.sort(u8, buffer, {}, comptime std.sort.asc(u8));
+}
+
 /// Returns the set of strings in `candidates` that are anagrams of `word`.
 /// Caller owns the returned memory.
 pub fn detectAnagrams(
@@ -14,15 +19,13 @@ pub fn detectAnagrams(
     const candidateSorted = try allocator.alloc(u8, word.len);
     defer allocator.free(candidateSorted);
 
-    _ = std.ascii.lowerString(wordSorted, word);
-    mem.sort(u8, wordSorted, {}, comptime std.sort.asc(u8));
+    lowerAndSort(wordSorted, word);
     for (candidates) |candidate| {
         if (candidate.len != word.len or std.ascii.eqlIgnoreCase(word, candidate)) {
             continue;
         }
 
-        _ = std.ascii.lowerString(candidateSorted, candidate);
-        mem.sort(u8, candidateSorted, {}, comptime std.sort.asc(u8));
+        lowerAndSort(candidateSorted, candidate);
         if (!mem.eql(u8, wordSorted, candidateSorted)) {
             continue;
         }
