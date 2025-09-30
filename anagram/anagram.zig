@@ -14,6 +14,7 @@ pub fn detectAnagrams(
     candidates: []const []const u8,
 ) !std.BufSet {
     var bufset = std.BufSet.init(allocator);
+    errdefer bufset.deinit();
     const wordSorted = try allocator.dupe(u8, word);
     defer allocator.free(wordSorted);
     const candidateSorted = try allocator.alloc(u8, word.len);
