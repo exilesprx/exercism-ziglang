@@ -36,6 +36,7 @@ comptime {
     _ = @import("allergies/test_allergies.zig");
     _ = @import("anagram/anagram.zig");
     _ = @import("etl/test_etl.zig");
+    _ = @import("high-scores/test_high_scores.zig");
 }
 
 test {
