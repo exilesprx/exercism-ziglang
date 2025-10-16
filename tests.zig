@@ -37,6 +37,7 @@ comptime {
     _ = @import("anagram/anagram.zig");
     _ = @import("etl/test_etl.zig");
     _ = @import("high-scores/test_high_scores.zig");
+    _ = @import("binary-search/binary_search.zig");
 }
 
 test {
