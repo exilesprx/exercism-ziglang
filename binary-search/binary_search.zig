@@ -1,7 +1,8 @@
-// Take a look at the tests, you might have to change the function arguments
+const std = @import("std");
 
-pub fn binarySearch(target: usize, items: []const usize) ?usize {
+pub fn binarySearch(comptime t: type, target: usize, items: []const usize) ?usize {
+    var set = [_]t{0} ** items.len;
     _ = target;
-    _ = items;
+    std.debug.print("set: {any}\n", .{set});
     @compileError("please implement the binarySearch function");
 }
